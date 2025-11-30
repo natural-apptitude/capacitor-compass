@@ -1,13 +1,27 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", "schedule:earlyMondays"],
+  "extends": [
+    "config:recommended",
+    "schedule:earlyMondays"
+  ],
   "dependencyDashboard": false,
   "lockFileMaintenance": {
     "enabled": true
   },
   "packageRules": [
     {
-      "matchPackageNames": ["ionic-team/capacitor-swift-pm"],
+      "matchPackageNames": [
+        "ionic-team/capacitor-swift-pm"
+      ],
+      "enabled": false
+    },
+    {
+      "matchPackageNames": [
+        "androidx.core:core"
+      ],
+      "matchManagers": [
+        "gradle"
+      ],
       "enabled": false
     }
   ]
