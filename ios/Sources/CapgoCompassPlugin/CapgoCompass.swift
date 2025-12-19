@@ -60,10 +60,6 @@ import os.log
     }
 
     public func getAuthorizationStatus() -> CLAuthorizationStatus {
-        if #available(iOS 14.0, *) {
-            return locationManager.authorizationStatus
-        } else {
-            return CLLocationManager.authorizationStatus()
-        }
+        return locationManager.authorizationStatus
     }
 }
