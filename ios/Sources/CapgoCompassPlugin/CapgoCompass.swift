@@ -52,11 +52,13 @@ import os.log
     }
 
     @objc public func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        self.lastTrueHeading = newHeading.trueHeading
+        let heading = newHeading.trueHeading
+        if heading < 0 || newHeading.headingAccuracy < 0 {
+            return
+        }
+        self.lastTrueHeading = heading
         
         guard let callback = headingCallback else { return }
-        
-        let heading = newHeading.trueHeading
         let now = Date().timeIntervalSince1970
         
         // Time-based throttle

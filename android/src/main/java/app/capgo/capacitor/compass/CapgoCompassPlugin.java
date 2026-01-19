@@ -63,11 +63,9 @@ public class CapgoCompassPlugin extends Plugin {
         Integer minInterval = call.getInt("minInterval");
         Double minHeadingChange = call.getDouble("minHeadingChange");
         
-        if (minInterval != null || minHeadingChange != null) {
-            long intervalMs = minInterval != null ? minInterval.longValue() : 100;
-            float headingChange = minHeadingChange != null ? minHeadingChange.floatValue() : 2.0f;
-            implementation.setThrottling(intervalMs, headingChange);
-        }
+        long intervalMs = minInterval != null ? minInterval.longValue() : 100L;
+        float headingChange = minHeadingChange != null ? minHeadingChange.floatValue() : 2.0f;
+        implementation.setThrottling(intervalMs, headingChange);
 
         isListening = true;
         implementation.setHeadingCallback((heading) -> {

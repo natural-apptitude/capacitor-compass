@@ -37,8 +37,8 @@ public class CapgoCompass implements SensorEventListener {
     private Handler sensorHandler;
     
     // Throttling state
-    private long lastNotifyTime = 0;
-    private float lastNotifiedHeading = -1;
+    private volatile long lastNotifyTime = 0;
+    private volatile float lastNotifiedHeading = -1;
 
     public interface HeadingCallback {
         void onHeadingChanged(float heading);
@@ -87,10 +87,10 @@ public class CapgoCompass implements SensorEventListener {
         lastNotifiedHeading = -1;
         
         if (this.magnetometer != null) {
-            this.sensorManager.registerListener(this, this.magnetometer, SensorManager.SENSOR_DELAY_UI, sensorHandler);
+            this.sensorManager.registerListener(this, this.magnetometer, SensorManager.SENSOR_DELAY_NORMAL, sensorHandler);
         }
         if (this.accelerometer != null) {
-            this.sensorManager.registerListener(this, this.accelerometer, SensorManager.SENSOR_DELAY_UI, sensorHandler);
+            this.sensorManager.registerListener(this, this.accelerometer, SensorManager.SENSOR_DELAY_NORMAL, sensorHandler);
         }
     }
 
