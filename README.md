@@ -1,9 +1,19 @@
 # @capgo/capacitor-compass
- <a href="https://capgo.app/"><img src='https://raw.githubusercontent.com/Cap-go/capgo/main/assets/capgo_banner.png' alt='Capgo - Instant updates for capacitor'/></a>
+
+<a href="https://capgo.app/">
+  <img
+    src="https://raw.githubusercontent.com/Cap-go/capgo/main/assets/capgo_banner.png"
+    alt="Capgo - Instant updates for capacitor"
+  />
+</a>
 
 <div align="center">
-  <h2><a href="https://capgo.app/?ref=plugin_compass"> ➡️ Get Instant updates for your App with Capgo</a></h2>
-  <h2><a href="https://capgo.app/consulting/?ref=plugin_compass"> Missing a feature? We'll build the plugin for you 💪</a></h2>
+  <h2>
+    <a href="https://capgo.app/?ref=plugin_compass"> ➡️ Get Instant updates for your App with Capgo</a>
+  </h2>
+  <h2>
+    <a href="https://capgo.app/consulting/?ref=plugin_compass"> Missing a feature? We'll build the plugin for you 💪</a>
+  </h2>
 </div>
 
 Native compass heading plugin for Capacitor.
@@ -73,16 +83,16 @@ await handle.remove();
 
 <docgen-index>
 
-* [`getCurrentHeading()`](#getcurrentheading)
-* [`getPluginVersion()`](#getpluginversion)
-* [`startListening(...)`](#startlistening)
-* [`stopListening()`](#stoplistening)
-* [`addListener('headingChange', ...)`](#addlistenerheadingchange-)
-* [`removeAllListeners()`](#removealllisteners)
-* [`checkPermissions()`](#checkpermissions)
-* [`requestPermissions()`](#requestpermissions)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+- [`getCurrentHeading()`](#getcurrentheading)
+- [`getPluginVersion()`](#getpluginversion)
+- [`startListening(...)`](#startlistening)
+- [`stopListening()`](#stoplistening)
+- [`addListener('headingChange', ...)`](#addlistenerheadingchange-)
+- [`removeAllListeners()`](#removealllisteners)
+- [`checkPermissions()`](#checkpermissions)
+- [`requestPermissions()`](#requestpermissions)
+- [Interfaces](#interfaces)
+- [Type Aliases](#type-aliases)
 
 </docgen-index>
 
@@ -106,8 +116,7 @@ Not implemented on Web.
 
 **Since:** 7.0.0
 
---------------------
-
+---
 
 ### getPluginVersion()
 
@@ -121,8 +130,7 @@ Get the native Capacitor plugin version.
 
 **Since:** 7.0.0
 
---------------------
-
+---
 
 ### startListening(...)
 
@@ -133,14 +141,13 @@ startListening(options?: ListeningOptions | undefined) => Promise<void>
 Start listening for compass heading changes via events.
 This starts the compass sensors and emits 'headingChange' events.
 
-| Param         | Type                                                          | Description                                      |
-| ------------- | ------------------------------------------------------------- | ------------------------------------------------ |
+| Param         | Type                                                          | Description                                    |
+| ------------- | ------------------------------------------------------------- | ---------------------------------------------- |
 | **`options`** | <code><a href="#listeningoptions">ListeningOptions</a></code> | Optional configuration for throttling behavior |
 
 **Since:** 7.0.0
 
---------------------
-
+---
 
 ### stopListening()
 
@@ -153,8 +160,7 @@ This stops the compass sensors and stops emitting events.
 
 **Since:** 7.0.0
 
---------------------
-
+---
 
 ### addListener('headingChange', ...)
 
@@ -173,8 +179,7 @@ Add a listener for compass events.
 
 **Since:** 7.0.0
 
---------------------
-
+---
 
 ### removeAllListeners()
 
@@ -186,8 +191,7 @@ Remove all listeners for this plugin.
 
 **Since:** 7.0.0
 
---------------------
-
+---
 
 ### checkPermissions()
 
@@ -203,8 +207,7 @@ On Android, this always returns 'granted' as no permissions are required.
 
 **Since:** 7.0.0
 
---------------------
-
+---
 
 ### requestPermissions()
 
@@ -220,11 +223,9 @@ On Android, this resolves immediately as no permissions are required.
 
 **Since:** 7.0.0
 
---------------------
-
+---
 
 ### Interfaces
-
 
 #### CompassHeading
 
@@ -233,7 +234,6 @@ Result containing the compass heading value.
 | Prop        | Type                | Description                        |
 | ----------- | ------------------- | ---------------------------------- |
 | **`value`** | <code>number</code> | Compass heading in degrees (0-360) |
-
 
 #### ListeningOptions
 
@@ -244,7 +244,6 @@ Options for configuring compass listening behavior.
 | **`minInterval`**      | <code>number</code> | Minimum interval between heading change events in milliseconds. Lower values = more frequent updates but higher CPU/battery usage.                                | <code>100</code> | 8.1.4 |
 | **`minHeadingChange`** | <code>number</code> | Minimum heading change in degrees required to trigger an event. Lower values = more sensitive but more events. Handles wraparound (e.g., 359° to 1° = 2° change). | <code>2.0</code> | 8.1.4 |
 
-
 #### HeadingChangeEvent
 
 Event data for heading change events.
@@ -252,7 +251,6 @@ Event data for heading change events.
 | Prop        | Type                | Description                        |
 | ----------- | ------------------- | ---------------------------------- |
 | **`value`** | <code>number</code> | Compass heading in degrees (0-360) |
-
 
 #### PermissionStatus
 
@@ -262,9 +260,7 @@ Permission status for compass plugin.
 | ------------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`compass`** | <code><a href="#permissionstate">PermissionState</a></code> | Permission state for accessing compass/location data. On iOS, this requires location permission to access heading. On Android, no special permissions are required for compass sensors. | 7.0.0 |
 
-
 ### Type Aliases
-
 
 #### PermissionState
 
