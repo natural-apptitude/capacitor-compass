@@ -86,12 +86,16 @@ public class CapgoCompass implements SensorEventListener {
         lastNotifyTime = 0;
         lastNotifiedHeading = -1;
 
-        if (this.magnetometer != null) {
-            this.sensorManager.registerListener(this, this.magnetometer, SensorManager.SENSOR_DELAY_NORMAL, sensorHandler);
-        }
-        if (this.accelerometer != null) {
-            this.sensorManager.registerListener(this, this.accelerometer, SensorManager.SENSOR_DELAY_NORMAL, sensorHandler);
-        }
+        // Post sensor registration to run AFTER Looper.loop() starts
+        // This ensures MessageQueue is fully initialized before registration
+        sensorHandler.post(() -> {
+            if (this.magnetometer != null) {
+                this.sensorManager.registerListener(this, this.magnetometer, SensorManager.SENSOR_DELAY_NORMAL, sensorHandler);
+            }
+            if (this.accelerometer != null) {
+                this.sensorManager.registerListener(this, this.accelerometer, SensorManager.SENSOR_DELAY_NORMAL, sensorHandler);
+            }
+        });
     }
 
     public void unregisterListeners() {
